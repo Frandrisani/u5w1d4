@@ -1,13 +1,21 @@
 package francescoandrisani.u5w1d4.entities;
 
+import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
+@Entity
+@Table(name = "pizze")
 @Getter
 public class Pizza extends Item {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Setter(AccessLevel.NONE)
+	private int id;
 	private String name;
-
 	private List<Topping> toppingList;
 	private boolean isXl = false;
 

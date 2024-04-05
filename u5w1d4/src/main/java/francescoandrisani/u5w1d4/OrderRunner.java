@@ -1,16 +1,23 @@
 package francescoandrisani.u5w1d4;
 
+import francescoandrisani.u5w1d4.dao.PizzaService;
 import francescoandrisani.u5w1d4.entities.*;
 import francescoandrisani.u5w1d4.entities.Menu;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
 public class OrderRunner implements CommandLineRunner {
+    @Autowired
+    private PizzaService usersService;
+
     @Override
     public void run(String... args) throws Exception {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(U5w1d4Application.class);
+
+
         try {
             // Stampiamo il menu
             Menu m = (Menu) ctx.getBean("menu");
